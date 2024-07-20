@@ -187,7 +187,7 @@ jobs:
         ARM_TENANT_ID: ${{ secrets.tenantId }}
     - name: Terraform Destroy
       if: ${{ inputs.TFAction == 'destroy' }}
-      run: terraform -chdir=${{ inputs.terraform_workingdir }} destroy -input=false -auto-approve
+      run: terraform -chdir=${{ inputs.terraform_workingdir }} destroy -input=false -auto-approve plan.tfplan
       env:
         ARM_CLIENT_ID: ${{ secrets.clientId }}
         ARM_CLIENT_SECRET: ${{ secrets.clientSecret }}
